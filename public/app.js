@@ -4,5 +4,4 @@ function something()
 		x = x * 1 + 1;
 		window.localStorage.setItem('ccc', x);
 		alert(x);
-		
 	}
