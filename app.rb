@@ -15,3 +15,8 @@ end
 get '/about' do
   	erb :about
 end
+
+get '/something' do
+	@var = Product.find('1')
+  	erb :something
+end
