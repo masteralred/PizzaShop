@@ -1,7 +1,8 @@
 function something()
 	{
-		var x = window.localStorage.getItem('aaa');
-		window.localStorage.setItem('aaa', 555);
+		var x = window.localStorage.getItem('ccc');
+		x = x * 1 + 1;
+		window.localStorage.setItem('ccc', x);
 		alert(x);
 		
 	}
