@@ -8,7 +8,8 @@ class AddProducts < ActiveRecord::Migration
   			:spicy=> false, 
   			:veg=> false, 
   			:best_offer=> false, 
-  			:image_path=> './images/hawaiian.png')
+  			:image_path=> './images/hawaiian.png'
+        )
 
   		Product.create(
   			:title=> 'Margharita', 
@@ -18,7 +19,8 @@ class AddProducts < ActiveRecord::Migration
   			:spicy=> false, 
   			:veg=> false, 
   			:best_offer=> true, 
-  			:image_path=> './images/margarita.png')
+  			:image_path=> './images/margarita.png'
+        )
 
   		Product.create(
   			:title=> 'Pepperoni', 
@@ -28,7 +30,8 @@ class AddProducts < ActiveRecord::Migration
   			:spicy=> true, 
   			:veg=> false, 
   			:best_offer=> true, 
-  			:image_path=> './images/pepperoni.png')
+  			:image_path=> './images/pepperoni.png'
+        )
 
   		Product.create( 
   			:title=> 'Vegetarian', 
@@ -38,6 +41,7 @@ class AddProducts < ActiveRecord::Migration
   			:spicy=> false, 
   			:veg=> true, 
   			:best_offer=> false, 
-  			:image_path=> './images/vegetarian.png')
+  			:image_path=> './images/vegetarian.png'
+        )
   	end
 end
