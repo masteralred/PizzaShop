@@ -1,3 +1,7 @@
 <h2>Welcome to Pizza Shop!</h2>
 <hr/>
+<% @products.each do |product| %>
+	<p><%= product.title %></p>
+<% end %>
+<hr/>
 <button class="btn btn-success btn-lg" onclick="something()">Click me!</button>
