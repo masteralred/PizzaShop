@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20160120110732) do
     t.boolean  "veg"
     t.boolean  "best_offer"
     t.string   "image_path"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "small_image_path"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end
