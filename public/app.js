@@ -9,7 +9,7 @@ function something()
 		alert(x); // Execute a table in browser
 	}
 
-function add_to_cart()
+function add_to_cart(id)
 	{
-		alert('Hello!')
+		alert('You added pizza with id: ' + id);
 	}
