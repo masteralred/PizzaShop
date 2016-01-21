@@ -3,24 +3,24 @@
 <div class="row">
 	<% @products.each do |p| %>
 		<div class="col-md-3">
-			<div>
+			<p class="alg">
 				<%= p.title %>
-			</div>
-			<div>
+			</p>
+			<p>
 				<img src="<%= p.small_image_path %>">
-			</div>
-			<div>
-				<%= p.description %>
-			</div>
-			<div>
-				Size: <%= p.size %>
-			</div>
-			<div>
-				Price: <%= p.price %> Rub
-			</div>
-			<div>
+			</p>
+			<p>
+				<span class="utxt"><%= p.description %></span>
+			</p>
+			<p>
+				<span class="alb">Size</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="utxt"><%= p.size %></span>
+			</p>
+			<p>
+				<span class="alb">Price</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="utxt"><%= p.price %> Rub</span>
+			</p>
+			<p>
 				<button class="btn btn-success btn-sm" onclick="add_to_cart(<%=p.id%>)">Add to cart</button>
-			</div>
+			</p>
 		</div>
 	<% end %>
 </div>
