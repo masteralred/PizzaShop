@@ -16,3 +16,25 @@ function add_to_cart(id)
 		x = x * 1 + 1;
 		window.localStorage.setItem(key, x);
 	}
+
+function iterator()
+	{
+		var list = "List of all pairs in local storage hash:";
+		for (var i = 0, len = localStorage.length; i < len; i++) {
+			var key = localStorage.key(i);
+			list = list + " " + key;
+			list = list + " => " + localStorage.getItem(key) + ";";
+		};
+		alert(list);
+	}
+
+function cart_items()
+	{
+		var total = 0;
+		for(var i=0, len=localStorage.length; i<len; i++) {
+    	var key = localStorage.key(i);
+    	var value = localStorage[key] * 1;
+    	total = total + value;
+		};
+		alert('Total items in cart: ' + total)
+	}
