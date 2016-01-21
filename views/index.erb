@@ -1,7 +1,11 @@
 <h2>Welcome to Pizza Shop!</h2>
 <hr/>
-<% @products.each do |product| %>
-	<p><%= product.title %></p>
-<% end %>
+<div class="row">
+	<% @products.each do |p| %>
+		<div class="col-md-3">
+			<%= p.title %>
+		</div>
+	<% end %>
+</div>
 <hr/>
 <button class="btn btn-success btn-lg" onclick="something()">Click me!</button>
