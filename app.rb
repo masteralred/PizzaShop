@@ -21,3 +21,9 @@ get '/something' do
 	@var = Product.find('1')
   	erb :something
 end
+
+get '/details/:id' do
+	id = params[:id]
+	@var = Product.find(id)
+	erb :details
+end

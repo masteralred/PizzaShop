@@ -8,8 +8,8 @@ class AddProducts < ActiveRecord::Migration
   			:spicy=> false, 
   			:veg=> false, 
   			:best_offer=> false, 
-  			:image_path=> './images/hawaiian.png',
-        :small_image_path=> './images/hawaiian243.png'
+  			:image_path=> '/images/hawaiian.png',
+        :small_image_path=> '/images/hawaiian243.png'
         )
 
   		Product.create(
@@ -20,8 +20,8 @@ class AddProducts < ActiveRecord::Migration
   			:spicy=> false, 
   			:veg=> false, 
   			:best_offer=> true, 
-  			:image_path=> './images/margarita.png',
-        :small_image_path=> './images/margarita243.png'
+  			:image_path=> '/images/margarita.png',
+        :small_image_path=> '/images/margarita243.png'
         )
 
   		Product.create(
@@ -32,8 +32,8 @@ class AddProducts < ActiveRecord::Migration
   			:spicy=> true, 
   			:veg=> false, 
   			:best_offer=> true, 
-  			:image_path=> './images/pepperoni.png',
-        :small_image_path=> './images/pepperoni243.png'
+  			:image_path=> '/images/pepperoni.png',
+        :small_image_path=> '/images/pepperoni243.png'
         )
 
   		Product.create( 
@@ -44,8 +44,8 @@ class AddProducts < ActiveRecord::Migration
   			:spicy=> false, 
   			:veg=> true, 
   			:best_offer=> false, 
-  			:image_path=> './images/vegetarian.png',
-        :small_image_path=> './images/vegetarian243.png'
+  			:image_path=> '/images/vegetarian.png',
+        :small_image_path=> '/images/vegetarian243.png'
         )
   	end
 end
