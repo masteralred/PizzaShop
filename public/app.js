@@ -8,3 +8,8 @@ function something()
 
 		alert(x); // Execute a table in browser
 	}
+
+function add_to_cart()
+	{
+		alert('Hello!')
+	}
