@@ -27,3 +27,7 @@ get '/details/:id' do
 	@var = Product.find(id)
 	erb :details
 end
+
+post '/cart' do
+	erb "Hello!"
+end
