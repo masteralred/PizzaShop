@@ -1,46 +1,33 @@
-function something()
-	{
-		var x = window.localStorage.getItem('ccc'); // x = hh['ccc']
-
-		x = x * 1 + 1; // x = x + 1 // x * 1 is because in JS first row return as a string. Here we remake it to integer again
-
-		window.localStorage.setItem('ccc', x); // hh['ccc'] = x
-
-		alert(x); // Execute a table in browser
-	}
-
 function add_to_cart(id)										// Функция добавления продукта в корзину (точнее создания пары в хеше localStorage)
 	{
 		var key = 'product_' + id;
 		var x = window.localStorage.getItem(key);
 		x = x * 1 + 1;
 		window.localStorage.setItem(key, x);
-		alert('Items in your cart: ' + cart_items2());
+		update_orders();
 	}
 
-function iterator()												// Мой вариант вывода всех пар из localStorage
+function cart_orders()
 	{
-		var list = "List of all pairs in local storage hash:";
+		var orders = '';
 		for (var i = 0, len = localStorage.length; i < len; i++) {
-			var key = localStorage.key(i);
-			list = list + " " + key;
-			list = list + " => " + localStorage.getItem(key) + ";";
+			var key = window.localStorage.key(i);
+			var value = window.localStorage.getItem(key);
+			if (key.indexOf('product_') == 0) 
+			{
+				orders = orders + key + '=' + value + ',';
+			};	
 		};
-		alert(list);
+		return orders;
 	}
 
-function cart_items()											// Мой вариант написания функции количества товаров
+function update_orders()
 	{
-		var total = 0;
-		for(var i=0, len=localStorage.length; i<len; i++) {
-    	var key = localStorage.key(i);
-    	var value = localStorage[key] * 1;
-    	total = total + value;
-		};
-		alert('Total items in cart: ' + total);
+		var orders = cart_orders();
+		$('#orders_input').val(orders);							// Здесь синтаксис jQuery
 	}
 
-function cart_items2()
+function cart_items()
 	{
 		var cnt = 0;											// Задание переменной
 		for(var i = 0; i < window.localStorage.length; i++)		// Итерация (итератор начнёт с нулевого индекса; закончит на 1 меньше чем длинна массива; 
