@@ -40,10 +40,8 @@
 			    </ul>
 			    <ul class="nav navbar-nav navbar-right">
 			    	<li>
-			    		<form action="/cart" method="post" class="form-inline">
-			    			<div class="form-group">
-			    				<input id="orders_input" class="form-control" name="oders" type="text">
-			    			</div>
+			    		<form action="/cart" method="post">
+			    			<input id="orders_input" name="oders" type="hidden">
 			    			<input type="submit" value="Cart (...)" class="btn btn-primary btn-lg">
 			    		</form>
 			    	</li>
