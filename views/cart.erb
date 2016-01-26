@@ -34,6 +34,18 @@
 	<div class="col-md-4 col-md-offset-2 alr">Ваш заказ на: <%=@total[:summ]%> Рублей</div>
 </div>
 <hr/>
-<form action="/order">
-	<input>
+<form action="/order" method="post">
+	<div class="form-group">
+    	<label>Ваше имя</label>
+    	<input type="text" name="zakaz[name]" class="form-control" placeholder="Иван Иванов" value="">
+  	</div>
+  	<div class="form-group">
+    	<label>Телефон</label>
+    	<input type="text" name="zakaz[phone]" class="form-control" placeholder="(915)111-11-11" value="">
+  	</div>
+  	<div class="form-group">
+    	<label>Адрес доставки</label>
+    	<input type="text" name="zakaz[adress]" class="form-control" placeholder="ул.Шевченко, д.5, корп.1, под.5, кв. 3" value="">
+  	</div>
+  	<button type="submit" class="btn btn-default">Заказать</button>
 </form>
