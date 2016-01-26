@@ -41,8 +41,8 @@
 			    <ul class="nav navbar-nav navbar-right">
 			    	<li>
 			    		<form action="/cart" method="post">
-			    			<input id="orders_input" name="oders" type="hidden">
-			    			<input id="orders_button" type="submit" value="Cart (...)" class="btn btn-primary btn-lg">
+			    			<input id="orders_input" name="list" type="hidden">
+			    			<input id="orders_button" type="submit" class="btn btn-primary btn-lg">
 			    		</form>
 			    	</li>
 			    </ul>
@@ -57,6 +57,13 @@
 			</div>
 
 	      </div>
+
+	      <script type="text/javascript">
+			$(function() {
+				update_orders();
+				update_orders_button();
+			});
+		  </script>
     
 	</body>
 </html>

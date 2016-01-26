@@ -29,5 +29,24 @@ get '/details/:id' do
 end
 
 post '/cart' do
-	erb "Hello!"
+	@orderlist = Hash.new
+	list = params[:list]
+	list = list.split(",").map { |e| e.split("=") }
+	amount = 0
+	summ = 0
+	list.each do |i|
+		p = Product.find(i[0].last) 
+		(@orderlist[p.title]||=[]) << p.price
+		@orderlist[p.title] << i[1].to_i
+		@orderlist[p.title] << (p.price * i[1].to_i)
+		@orderlist[p.title] << p.small_image_path
+		amount = amount + i[1].to_i
+		summ = summ + p.price
+	end
+	@total = {:amount=>amount, :summ=>summ}
+	erb :cart
+end
+
+post '/order'
+	erb "ORDER"
 end
