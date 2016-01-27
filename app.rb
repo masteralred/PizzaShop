@@ -62,10 +62,7 @@ end
 post '/order' do
 	o = Order.new params[:zakaz]
 	o.order_list = $txt
-	if o.save
-		o = Order.last
-		erb "<h2>ORDER №#{o.id}</h2> <p><b>ИМЯ:</b> #{o.name}</p><p><b>ТЕЛЕФОН:</b> #{o.phone}</p><p><b>АДРЕС:</b> #{o.adress}</p> #{$txt}"
-	else
-		redirect '/cart'
-	end
+	o.save
+	o = Order.last
+	erb "<h2>ORDER №#{o.id}</h2> <p><b>ИМЯ:</b> #{o.name}</p><p><b>ТЕЛЕФОН:</b> #{o.phone}</p><p><b>АДРЕС:</b> #{o.adress}</p> #{$txt}"
 end
