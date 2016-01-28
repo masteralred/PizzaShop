@@ -12,16 +12,14 @@
 				</tr> 
 			</thead> 
 			<tbody>
-				<%i=0%>
-				<%@orderlist.each do |k,v|%> 
-				<tr>
-					<%i=i+1%> 
-					<th><%=i%></th> 
-					<td><%=k%></td>
-					<td><%=v[0]%> Рублей</td> 
-					<td><%=v[1]%></td>
-					<td><%=v[2]%> Рублей</td>
-					<td><img src="<%=v[3]%>" height=30 width=30></td>  
+				<%@orders.each.with_index do |e,i|%> 
+				<tr> 
+					<th><%=i+1%></th> 
+					<td><%=e[0].title%></td>
+					<td><%=e[0].price%> Рублей</td> 
+					<td><%=e[1]%></td>
+					<td><%=e[2]%> Рублей</td>
+					<td><img src="<%=e[0].small_image_path%>" height=30 width=30></td>  
 				</tr>
 				<%end%> 
 			</tbody>	 

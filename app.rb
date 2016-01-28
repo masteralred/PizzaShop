@@ -38,27 +38,17 @@ get '/details/:id' do
 end
 
 post '/cart' do
-	@orderlist = Hash.new
 	orders = params[:orders]
-	orders = parse_orders orders
+	@orders = parse_orders orders
 	amount = 0
 	summ = 0
-	$txt = ""
-	orders.each do |i|
-		p = Product.find(i[0])
-		$txt = $txt + "<p><b>Продукт: #{p.title}</b></p>" 
-		(@orderlist[p.title]=[]) << p.price
-		$txt = $txt + "<p>Цена: #{p.price}</p>"
-		@orderlist[p.title] << i[1].to_i
-		$txt = $txt + "<p>Количество: #{i[1]}</p>"
-		@orderlist[p.title] << (p.price * i[1].to_i)
-		$txt = $txt + "</p>Всего: #{p.price * i[1].to_i}</p>"
-		@orderlist[p.title] << p.small_image_path
+	@orders.each do |i|
+		i[0] = Product.find(i[0])
+		i << i[0].price * i[1].to_i 
 		amount = amount + i[1].to_i
-		summ = summ + p.price
+		summ = summ + i[0].price
 	end
-	@total = {:amount=>amount, :summ=>summ}
-	$txt = $txt + "<p><b>Общее количество: #{amount} &nbsp;&nbsp; | &nbsp;&nbsp; Общая сумма: #{summ}</b></p>" 
+	@total = {:amount=>amount, :summ=>summ} 
 	erb :cart
 end
 
