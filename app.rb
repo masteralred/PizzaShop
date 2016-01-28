@@ -9,9 +9,12 @@ class Product < ActiveRecord::Base
 end
 
 class Order < ActiveRecord::Base
-	validates :name, presence: true
-	validates :phone, presence: true
-	validates :adress, presence: true
+end
+
+def parse_orders orders
+	orders = orders.split(",").map {|e| e.split("=")}
+	orders.map! {|e| e = [(e[0].split("_")[1]), e[1]]}
+	return orders
 end
 
 get '/' do
@@ -36,13 +39,13 @@ end
 
 post '/cart' do
 	@orderlist = Hash.new
-	list = params[:list]
-	list = list.split(",").map { |e| e.split("=") }
+	orders = params[:orders]
+	orders = parse_orders orders
 	amount = 0
 	summ = 0
 	$txt = ""
-	list.each do |i|
-		p = Product.find(i[0].last)
+	orders.each do |i|
+		p = Product.find(i[0])
 		$txt = $txt + "<p><b>Продукт: #{p.title}</b></p>" 
 		(@orderlist[p.title]=[]) << p.price
 		$txt = $txt + "<p>Цена: #{p.price}</p>"
