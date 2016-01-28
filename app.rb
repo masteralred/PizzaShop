@@ -14,7 +14,16 @@ end
 def parse_orders orders
 	orders = orders.split(",").map {|e| e.split("=")}
 	orders.map! {|e| e = [(e[0].split("_")[1]), e[1]]}
-	return orders
+	amount = 0
+	summ = 0
+	orders.each do |i|
+		i[0] = Product.find(i[0])
+		i << i[0].price * i[1].to_i 
+		amount += i[1].to_i
+		summ += i[2]
+	end
+	total = {:amount=>amount, :summ=>summ}
+	return orders, total
 end
 
 get '/' do
@@ -37,25 +46,27 @@ get '/details/:id' do
 	erb :details
 end
 
+get '/cart' do
+	erb "Stub"
+end
+
+get '/order' do
+	@o = Order.last
+	@orders, @total = parse_orders @o.order_list
+	erb :order_done
+end
+
 post '/cart' do
-	orders = params[:orders]
-	@orders = parse_orders orders
-	amount = 0
-	summ = 0
-	@orders.each do |i|
-		i[0] = Product.find(i[0])
-		i << i[0].price * i[1].to_i 
-		amount += i[1].to_i
-		summ += i[2]
-	end
-	@total = {:amount=>amount, :summ=>summ} 
+	@list = params[:orders]
+	@orders, @total = parse_orders @list
 	erb :cart
 end
 
 post '/order' do
-	o = Order.new params[:zakaz]
-	o.order_list = $txt
+	o = Order.new params[:order]
 	o.save
-	o = Order.last
-	erb "<h2>ORDER №#{o.id}</h2> <p><b>ИМЯ:</b> #{o.name}</p><p><b>ТЕЛЕФОН:</b> #{o.phone}</p><p><b>АДРЕС:</b> #{o.adress}</p> #{$txt}"
+	@o = Order.last
+	@orders, @total = parse_orders @o.order_list
+	erb :order_done
+	#redirect '/order'
 end
