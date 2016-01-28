@@ -45,8 +45,8 @@ post '/cart' do
 	@orders.each do |i|
 		i[0] = Product.find(i[0])
 		i << i[0].price * i[1].to_i 
-		amount = amount + i[1].to_i
-		summ = summ + i[0].price
+		amount += i[1].to_i
+		summ += i[2]
 	end
 	@total = {:amount=>amount, :summ=>summ} 
 	erb :cart
