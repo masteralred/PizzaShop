@@ -32,7 +32,11 @@ get '/' do
 end
 
 get '/about' do
-  	erb :about
+  	erb "<h2>About page</h2><hr/>About stub"
+end
+
+get '/contacts' do
+  	erb "<h2>Contacts page</h2><hr/>Contacts stub"
 end
 
 get '/something' do
@@ -57,13 +61,15 @@ get '/order/:id' do
 end
 
 post '/cart' do
-	@list = params[:orders]
-	@orders, @total = parse_orders @list
+	@orders, @total = parse_orders params[:orders]
 	erb :cart
 end
 
 post '/order' do
 	o = Order.new params[:order]
-	o.save
-	redirect "/order/#{o.id}"
+	if o.save
+		redirect "/order/#{o.id}"
+	else
+
+	end
 end
