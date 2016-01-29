@@ -2,8 +2,9 @@
 <p><b>ИМЯ:</b> <%=@o.name%></p>
 <p><b>ТЕЛЕФОН:</b> <%=@o.phone%></p>
 <p><b>АДРЕС:</b> <%=@o.adress%></p>
+<p><b>ТОВАРЫ:</b></p>
 <% @orders.each do |e| %>
-	<p><b><%=e[0].title%></b></p>
+	<p><b> &nbsp;&nbsp;&nbsp;&nbsp; <%=e[0].title%></b></p>
 	Цена: <%=e[0].price%> Руб.<br/>
 	Количество: <%=e[1]%><br/>
 	На сумму: <%=e[2]%> Руб.<br/>
@@ -11,3 +12,9 @@
 <% end %>
 <b>Всего товаров: <%=@total[:amount]%><br/>
 Общая сумма: <%=@total[:summ]%> Руб.</b>
+
+<script type="text/javascript">
+	$(function () {
+		window.localStorage.clear();
+	});
+</script>

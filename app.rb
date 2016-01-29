@@ -61,12 +61,12 @@ get '/order/:id' do
 end
 
 post '/cart' do
-	@orders, @total = parse_orders params[:orders]
+	@list = params[:orders]
+	@orders, @total = parse_orders @list
 	erb :cart
 end
 
 post '/order' do
-	o = Order.new params[:order]
-	o.save
+	o = Order.create params[:order]
 	redirect "/order/#{o.id}"
 end
