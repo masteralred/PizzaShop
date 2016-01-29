@@ -63,7 +63,7 @@ end
 post '/cart' do
 	@list = params[:orders]
 	@orders, @total = parse_orders @list
-	erb :cart
+	@list.size == 0 ? (erb :cart_empty) : (erb :cart)
 end
 
 post '/order' do
