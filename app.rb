@@ -50,8 +50,8 @@ get '/cart' do
 	erb "Stub"
 end
 
-get '/order' do
-	@o = Order.last
+get '/order/:id' do
+	@o = Order.find(params[:id])
 	@orders, @total = parse_orders @o.order_list
 	erb :order_done
 end
@@ -65,8 +65,5 @@ end
 post '/order' do
 	o = Order.new params[:order]
 	o.save
-	@o = Order.last
-	@orders, @total = parse_orders @o.order_list
-	erb :order_done
-	#redirect '/order'
+	redirect "/order/#{o.id}"
 end
