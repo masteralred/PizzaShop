@@ -31,7 +31,7 @@ function update_orders()										// Функция внесения списк�
 function update_orders_button()									// Функция внесения количества заказанных позиций в кнопку
 	{
 		var text = 'Cart (' + cart_items() + ')';
-		$('#orders_button').val(text);
+		$('#orders_button').html('<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> ' + text);
 	}
 
 function cart_items()											// Функция высчитывания количества заказанных позиций

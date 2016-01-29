@@ -40,7 +40,7 @@ get '/contacts' do
 end
 
 get '/something' do
-	@o = Order.all
+	@o = Order.order(created_at: :desc)
   	erb :something
 end
 
