@@ -1,23 +1,24 @@
-<h2>Наша пицца</h2>
+<h2>Админка</h2>
 <hr/>
-<div class="row">
-	<div class="col-md-12 alg"><%=@var.title%></div>
-</div>
-<br/>
-<div class="row">
-	<div class="col-md-5"><img src="<%=@var.image_path%>"></div>
-	<div class="col-md-6 col-md-offset-1"><h3><%=@var.description%></h3>
-
-	  	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur enim a purus maximus, ac fermentum velit pretium. In sit amet ipsum malesuada, elementum lectus a, commodo sem. Nunc tincidunt eros eu neque accumsan condimentum. Cras quis finibus metus, eu faucibus justo. Suspendisse auctor leo vitae orci gravida ultricies. Cras eleifend rutrum sem, ut efficitur ex viverra nec. Nullam in sem ultrices, vulputate magna non, scelerisque enim. Donec ut auctor enim. Phasellus at ipsum quis tellus consequat vestibulum sed vel diam. Mauris turpis sem, volutpat vel lacus vel, vulputate sodales metus. Vestibulum ac purus vitae justo faucibus molestie. Vestibulum ultricies, massa vitae venenatis rhoncus, diam est porttitor mauris, non eleifend nisi risus ut nisl. Duis dapibus sem et purus dapibus, eu molestie augue congue.</p>
-
-		<p><span class="alb">Size</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="utxt"><%=@var.size%> cm</span></p>
-		<p><span class="alb">Spicy</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="utxt"><%=@var.spicy%></span></p>
-		<p><span class="alb">Vegeterian</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="utxt"><%=@var.veg%></span></p>
-		<p><span class="alb">Best offer</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="utxt"><%=@var.best_offer%></span></p>
-
-	</div>
-</div>
-<br/>
-<div class="row">
-	<div class="col-md-5"><span class="alr">Price</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="utxt"><%=@var.price%> Rub</span></div>
-</div>
+<table class="table table-striped"> 
+	<thead> 
+		<tr> 
+			<th>#</th> 
+			<th>Name</th> 
+			<th>Phone</th> 
+			<th>Adress</th>
+			<th>Order list</th> 
+		</tr> 
+	</thead> 
+	<tbody>
+		<% @o.each do |o| %> 
+		<tr> 
+			<th><%=o.id%></th> 
+			<td><%=o.name%></td> 
+			<td><%=o.phone%></td> 
+			<td><%=o.adress%></td>
+			<td><%=o.order_list%></td> 
+		</tr>
+		<%end%> 
+	</tbody> 
+</table>

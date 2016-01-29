@@ -40,7 +40,7 @@ get '/contacts' do
 end
 
 get '/something' do
-	@var = Product.find('1')
+	@o = Order.all
   	erb :something
 end
 
@@ -67,9 +67,6 @@ end
 
 post '/order' do
 	o = Order.new params[:order]
-	if o.save
-		redirect "/order/#{o.id}"
-	else
-
-	end
+	o.save
+	redirect "/order/#{o.id}"
 end
