@@ -48,3 +48,9 @@ function cart_items()											// Функция высчитывания ко�
 		};
 		return cnt;												// Возврат переменной
 	}
+
+function cart_clear() 
+	{
+		window.localStorage.clear();
+		update_orders_button();
+	}

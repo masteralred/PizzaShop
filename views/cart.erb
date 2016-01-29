@@ -29,7 +29,8 @@
 <hr/>
 <div class="row">
 	<div class="col-md-4 col-md-offset-1 alb">Общее количество товаров: <%=@total[:amount]%></div>
-	<div class="col-md-4 col-md-offset-2 alr">Ваш заказ на: <%=@total[:summ]%> Рублей</div>
+	<div class="col-md-3 col-md-offset-1 alb">Ваш заказ на: <%=@total[:summ]%> Рублей</div>
+	<div class="col-md-1 col-md-offset-1"><button class="btn btn-danger btn-sm" onclick="cart_clear()">Очистить корзину</button></div>
 </div>
 <hr/>
 <form action="/order" method="post">
