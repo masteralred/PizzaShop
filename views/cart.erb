@@ -1,36 +1,38 @@
 <h2>Список товаров в корзине</h2>
-<div class="row">
-	<div class="col-md-12">
-		<table class="table table-striped"> 
-			<thead> 
-				<tr> 
-					<th>Позиция</th> 
-					<th>Пицца</th>
-					<th>Цена</th> 
-					<th>Количество</th>
-					<th>Всего</th> 
-				</tr> 
-			</thead> 
-			<tbody>
-				<%@orders.each.with_index do |e,i|%> 
-				<tr> 
-					<th><%=i+1%></th> 
-					<td><%=e[0].title%></td>
-					<td><%=e[0].price%> Рублей</td> 
-					<td><%=e[1]%></td>
-					<td><%=e[2]%> Рублей</td>
-					<td><img src="<%=e[0].small_image_path%>" height=30 width=30></td>  
-				</tr>
-				<%end%> 
-			</tbody>	 
-		</table>
+<div id="cart_clear">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-striped"> 
+				<thead> 
+					<tr> 
+						<th>Позиция</th> 
+						<th>Пицца</th>
+						<th>Цена</th> 
+						<th>Количество</th>
+						<th>Всего</th> 
+					</tr> 
+				</thead> 
+				<tbody>
+					<%@orders.each.with_index do |e,i|%> 
+					<tr> 
+						<th><%=i+1%></th> 
+						<td><%=e[0].title%></td>
+						<td><%=e[0].price%> Рублей</td> 
+						<td><%=e[1]%></td>
+						<td><%=e[2]%> Рублей</td>
+						<td><img src="<%=e[0].small_image_path%>" height=30 width=30></td>  
+					</tr>
+					<%end%> 
+				</tbody>	 
+			</table>
+		</div>
 	</div>
-</div>
-<hr/>
-<div class="row">
-	<div class="col-md-4 col-md-offset-1 alb">Общее количество товаров: <%=@total[:amount]%></div>
-	<div class="col-md-3 col-md-offset-1 alb">Ваш заказ на: <%=@total[:summ]%> Рублей</div>
-	<div class="col-md-1 col-md-offset-1"><button class="btn btn-danger btn-sm" onclick="cart_clear()">Очистить корзину</button></div>
+	<hr/>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-1 alb">Общее количество товаров: <%=@total[:amount]%></div>
+		<div class="col-md-3 col-md-offset-1 alb">Ваш заказ на: <%=@total[:summ]%> Рублей</div>
+		<div class="col-md-1 col-md-offset-1"><button class="btn btn-danger btn-sm" onclick="cart_clear()">Очистить корзину</button></div>
+	</div>
 </div>
 <hr/>
 <form action="/order" method="post">

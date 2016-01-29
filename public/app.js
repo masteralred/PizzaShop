@@ -52,5 +52,7 @@ function cart_items()											// Функция высчитывания ко�
 function cart_clear() 
 	{
 		window.localStorage.clear();
+		update_orders();
 		update_orders_button();
+		$('#cart_clear').html("<div class='alr'>Ваша корзина пуста</div>");
 	}
